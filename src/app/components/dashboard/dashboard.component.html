@@ -1,4 +1,18 @@
 <div class="header">
-    <button pButton class="button-logout" (click)="logOut()">Logout</button>
+    <img src="../../../assets/img/logo.png" alt="">
+    <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+        <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars"></button>
+    </div>
 </div>
-<p>dashboard works!</p>
+
+<div class="container">
+    <div class="cards" *ngFor="let item of principalMenu">
+        <p-card header={{item.title}} [style]="{ width: '360px' }">
+            <ng-template pTemplate="footer">
+                <p-button label="Ir" icon="pi pi-angle-right"></p-button>
+            </ng-template>
+        </p-card>
+    </div>
+</div>
