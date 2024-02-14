@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
 
 // primeng imports
 
@@ -16,12 +17,15 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MenuModule } from 'primeng/menu';
 import { MessagesModule } from 'primeng/messages';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -34,7 +38,9 @@ import { MessagesModule } from 'primeng/messages';
     ReactiveFormsModule,
     CardModule,
     MenuModule,
-    MessagesModule
+    MessagesModule,
+    InputNumberModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent],

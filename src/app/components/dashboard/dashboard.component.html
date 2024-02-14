@@ -12,7 +12,10 @@
         <ng-container *ngIf="item.rol === roleUser">
             <p-card header={{item.title}} [style]="{ width: '360px' }">
                 <ng-template pTemplate="footer">
-                    <p-button label="Ir" icon="pi pi-angle-right"></p-button>
+                    <p-button
+                        label="Ir"
+                        icon="pi pi-angle-right"
+                        (onClick)="navigateTo(item.path)"></p-button>
                 </ng-template>
             </p-card>
         </ng-container>

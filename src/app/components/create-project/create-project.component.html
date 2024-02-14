@@ -1,0 +1,61 @@
+<div class="header">
+    <img src="../../../assets/img/logo.png" alt="">
+    <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <button pButton type="button" (click)="navigateTo()" icon="pi pi-angle-double-left"></button>
+    </div>
+</div>
+
+<div class="form-wrapper">
+    <h1>Creación de proyecto</h1>
+    <form
+        class="form"
+        [formGroup]="formulario" (ngSubmit)="submitForm()">
+        <div class="form--inputs">
+            <div class="form--inputs-fields">
+                <label for="proyecto">Proyecto:</label>
+                <input pInputText type="text" id="proyecto" formControlName="project">
+            </div>
+            <div class="form--inputs-fields">
+                <label for="tipoProducto">Tipo de Producto:</label>
+                <input  pInputText type="text" id="tipoProducto" formControlName="project_type">
+            </div>
+        
+            <div class="form--inputs-fields">
+                <label for="nombreArchivo">Nombre del Archivo:</label>
+                <input pInputText type="text" id="nombreArchivo" formControlName="name_file">
+            </div>
+        
+            <div class="form--inputs-fields">
+                <label for="cantidadPrototipos">Cantidad de Prototipos:</label>
+                <p-inputNumber id="cantidadPrototipos" formControlName="cuantity_prototypes"></p-inputNumber>
+                <!-- <input pInputText type="number" id="cantidadPrototipos" formControlName="cuantity_prototypes"> -->
+            </div>
+        
+            <div class="form--inputs-fields">
+                <label for="cantidadProduccion">Cantidad de Prototipos a Producir por Prototipo (KG):</label>
+                <!-- <input type="number" id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"> -->
+                <p-inputNumber id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"></p-inputNumber>
+            </div>
+    
+            <div class="form--inputs-fields">
+                <label for="tipoEmpaque">Tipo de Empaque para el Producto:</label>
+                <input pInputText type="text" id="tipoEmpaque" formControlName="type_of_packaging">
+            </div>
+        </div>
+    
+        <div class="form--text">
+            <div class="form--inputs-fields">
+                <label for="finalidadMuestras">Finalidad de las Muestras:</label>
+                <textarea pInputTextarea id="finalidadMuestras" formControlName="finally"></textarea>
+            </div>
+        
+            <div class="form--inputs-fields">
+                <label for="observaciones">Observaciones Adicionales:</label>
+                <textarea pInputTextarea id="observaciones" formControlName="comments"></textarea>
+            </div>
+            <button pButton type="submit">Enviar</button>
+        </div>
+    
+    </form>
+</div>

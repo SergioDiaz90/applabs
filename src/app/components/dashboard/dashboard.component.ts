@@ -81,6 +81,15 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
+  navigateTo(path: string) {
+    if (this.authService.isAuthenticatedUser()) {
+      this.router.navigate([path]);
+      return;
+    }
+
+    this.router.navigate(['/login']);
+  }
+
   async logOut () {
     let response = await this.authService.logout();
     if (response.status) {
