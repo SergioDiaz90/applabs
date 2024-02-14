@@ -9,17 +9,25 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class DashboardComponent implements OnInit {
 
+  roleUser: string;
   constructor(
     private authService: AuthServiceService,
     private router: Router
-  ) { }
+  ) {
+    this.roleUser = '';
+  }
 
   ngOnInit(): void {
+    if (this.authService.isAuthenticatedUser()) {
+      this.roleUser = this.authService.isRoleUser();
+    }
+
+    console.log('DashboardComponent', this.roleUser);
   }
 
   async logOut () {
     let response = await this.authService.logout();
-    if (response) {
+    if (response.status) {
       this.router.navigate(['/login']);
     }
   }

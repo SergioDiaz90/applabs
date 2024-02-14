@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
+  token = '';
 
   constructor(
     private authService: AuthServiceService,
@@ -22,8 +23,8 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    let response = await this.authService.login(this.username, this.password);
-    if (response) {
+    let response = await this.authService.login(this.username, this.password, this.token);
+    if (response.status) {
       console.log('loginComponent', response);
       this.router.navigate(['/dashboard']);
     }
