@@ -9,10 +9,12 @@
 
 <div class="container">
     <div class="cards" *ngFor="let item of principalMenu">
-        <p-card header={{item.title}} [style]="{ width: '360px' }">
-            <ng-template pTemplate="footer">
-                <p-button label="Ir" icon="pi pi-angle-right"></p-button>
-            </ng-template>
-        </p-card>
+        <ng-container *ngIf="item.rol === roleUser">
+            <p-card header={{item.title}} [style]="{ width: '360px' }">
+                <ng-template pTemplate="footer">
+                    <p-button label="Ir" icon="pi pi-angle-right"></p-button>
+                </ng-template>
+            </p-card>
+        </ng-container>
     </div>
 </div>

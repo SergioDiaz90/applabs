@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +14,25 @@ export class DashboardComponent implements OnInit {
 
   principalMenu: any[] = [];
   items: MenuItem[] = [];
+  roleUser: string;
+  user: any;
 
   constructor(
     private authService: AuthServiceService,
+    private sessionStorage: SessionStorageService,
     private router: Router
-  ) { }
+  ) {
+    this.roleUser = '';
+  }
 
   ngOnInit(): void {
+    this.roleUser = this.authService.isRoleUser();
+    this.user = this.sessionStorage.select(environment.keySession);
+    console.log('usuariooo');
+    console.log(this.user)
+    if (!this.roleUser) {
+      this.router.navigate(['/login']);
+    }
     this.initMenu();
   }
 
@@ -26,34 +40,34 @@ export class DashboardComponent implements OnInit {
     this.principalMenu = [
       {
         title: "Crear Proyecto",
-        rol: "Analista",
+        rol: "analist-specialist",
         path: "/createProyect"
       },
       {
         title: "Crear Solicitud",
-        rol: "",
+        rol: "laboratorist",
         path: "/createRequest"
       },
       {
         title: "Validar Inventario",
-        rol: "",
+        rol: "analist-profesional",
         path: "/inventory"
       },
       {
         title: "Crear Informe",
-        rol: "",
+        rol: "analist-specialist",
         path: "/report"
       },
       {
         title: "Consultar Informe",
-        rol: "",
+        rol: "laboratorist",
         path: "/consultReport"
       }
     ];
 
     this.items = [
       {
-          label: 'Usuario',
+          label: this.user.user,
           items: [
             {
               label: 'Cerrar Sesión',
@@ -69,7 +83,7 @@ export class DashboardComponent implements OnInit {
 
   async logOut () {
     let response = await this.authService.logout();
-    if (response) {
+    if (response.status) {
       this.router.navigate(['/login']);
     }
   }

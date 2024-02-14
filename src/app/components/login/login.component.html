@@ -1,3 +1,6 @@
+<div class="card">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
 <div class="login-container">
     <div class="login-box">
         <img src="../../../assets/img/logo.png" alt="">
@@ -10,7 +13,12 @@
             <label for="password">Contraseña:</label>
             <input type="password" pInputText class="form-group--pass input" id="password" name="password" [(ngModel)]="password" required>
             </div>
-            <button pButton class="p-button-info" type="submit" [disabled]="!password || !username">Iniciar Sesión</button>
+            <div class="form-group">
+                <label for="token">Token:</label>
+                <!-- <input type="password" id="password" name="password" [(ngModel)]="password" required> -->
+                <p-password class="form-group--pass" id="password" name="token" [(ngModel)]="token" required></p-password>
+            </div>
+            <button pButton class="p-button-info" type="submit" [disabled]="!password || !username || !token ">Iniciar Sesión</button>
         </form>
     </div>
 </div>

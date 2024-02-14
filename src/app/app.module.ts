@@ -15,6 +15,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MenuModule } from 'primeng/menu';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenuModule } from 'primeng/menu';
     ButtonModule,
     ReactiveFormsModule,
     CardModule,
-    MenuModule
+    MenuModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

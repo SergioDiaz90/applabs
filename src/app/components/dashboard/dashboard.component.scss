@@ -14,8 +14,12 @@
 }
 
 .container {
-    margin: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 20px;
+    margin: auto;
+
+    .cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 15px auto;
+    }
 }
