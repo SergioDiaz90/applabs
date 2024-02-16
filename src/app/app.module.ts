@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { CreateRequestComponent } from './components/create-request/create-request.component';
 
 // primeng imports
 
@@ -19,13 +20,17 @@ import { MenuModule } from 'primeng/menu';
 import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+import { ListboxModule } from 'primeng/listbox';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    CreateRequestComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -40,7 +45,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     MenuModule,
     MessagesModule,
     InputNumberModule,
-    InputTextareaModule
+    InputTextareaModule,
+    AgGridAngular,
+    ListboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

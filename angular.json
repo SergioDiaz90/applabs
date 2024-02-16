@@ -110,5 +110,7 @@
       }
     }
   },
-  "defaultProject": "applabs"
+  "cli": {
+    "analytics": false
+  }
 }

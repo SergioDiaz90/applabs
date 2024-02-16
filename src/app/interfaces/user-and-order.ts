@@ -21,3 +21,8 @@ export interface IStates {
     updatedAt?: Date,
     status?: string
 }
+
+export interface City {
+    name: string,
+    code: string
+}

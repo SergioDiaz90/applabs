@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-create-project',
@@ -11,8 +12,9 @@ export class CreateProjectComponent implements OnInit {
   formulario: any;
 
   constructor(
-    private forms: FormBuilder,
-    private router: Router
+    private forms: UntypedFormBuilder,
+    private router: Router,
+    private orderService: OrderService
   ) { }
 
   ngOnInit(): void {
@@ -20,18 +22,15 @@ export class CreateProjectComponent implements OnInit {
       project: ['', Validators.required],
       project_type: ['', Validators.required],
       name_file: ['', Validators.required],
-      cuantity_prototypes: ['', Validators.required],
-      cuantity_prototypes_by_kg: ['', Validators.required],
-      type_of_packaging: ['', Validators.required],
-      finally: ['', Validators.required],
-      comments: ['', Validators.required],
     });
   }
 
-  submitForm(): void {
+  submitForm() {
     if (this.formulario.valid) {
-      console.log(this.formulario.value);
+      return this.orderService.handlerCreateProjects(this.formulario.value);
     }
+
+    return { 'status': false, method: 'submitForm' };
   }
 
   navigateTo() {
