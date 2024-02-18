@@ -20,7 +20,6 @@ import { MenuModule } from 'primeng/menu';
 import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ListboxModule } from 'primeng/listbox';
 
 
@@ -46,7 +45,6 @@ import { ListboxModule } from 'primeng/listbox';
     MessagesModule,
     InputNumberModule,
     InputTextareaModule,
-    AgGridAngular,
     ListboxModule
   ],
   providers: [],
