@@ -1,0 +1,92 @@
+{
+    "inventario": [
+        {
+            "codigo": "LP001",
+            "producto": "Leche en polvo",
+            "materia_prima": "Leche de vaca",
+            "cantidad": 100,
+            "unidades_disponibles": "kg",
+            "valor_gramo": 0.0025
+        },
+        {
+            "codigo": "YH002",
+            "producto": "Yogur natural",
+            "materia_prima": "Leche de cabra",
+            "cantidad": 50,
+            "unidades_disponibles": "litros",
+            "valor_gramo": 0.003
+        },
+        {
+            "codigo": "QB003",
+            "producto": "Queso blanco",
+            "materia_prima": "Leche de oveja",
+            "cantidad": 75,
+            "unidades_disponibles": "kg",
+            "valor_gramo": 0.004
+        },
+        {
+            "codigo": "CC004",
+            "producto": "Crema de leche",
+            "materia_prima": "Leche de vaca",
+            "cantidad": 120,
+            "unidades_disponibles": "litros",
+            "valor_gramo": 0.002
+        },
+        {
+            "codigo": "LP001",
+            "producto": "Leche en polvo",
+            "materia_prima": "Leche de vaca",
+            "cantidad": 100,
+            "unidades_disponibles": "kg",
+            "valor_gramo": 0.0025
+        },
+        {
+        "codigo": "YH002",
+        "producto": "Yogur natural",
+        "materia_prima": "Leche de cabra",
+        "cantidad": 50,
+        "unidades_disponibles": "litros",
+        "valor_gramo": 0.003
+        },
+        {
+        "codigo": "QB003",
+        "producto": "Queso blanco",
+        "materia_prima": "Leche de oveja",
+        "cantidad": 75,
+        "unidades_disponibles": "kg",
+        "valor_gramo": 0.004
+        },
+        {
+        "codigo": "CC004",
+        "producto": "Crema de leche",
+        "materia_prima": "Leche de vaca",
+        "cantidad": 120,
+        "unidades_disponibles": "litros",
+        "valor_gramo": 0.002
+        },
+        {
+        "codigo": "MN005",
+        "producto": "Mantequilla",
+        "materia_prima": "Leche de búfala",
+        "cantidad": 80,
+        "unidades_disponibles": "kg",
+        "valor_gramo": 0.005
+        },
+        {
+        "codigo": "YH006",
+        "producto": "Yogur de frutas",
+        "materia_prima": "Mezcla de leches",
+        "cantidad": 60,
+        "unidades_disponibles": "litros",
+        "valor_gramo": 0.0035
+        },
+        {
+        "codigo": "QG007",
+        "producto": "Queso Gouda",
+        "materia_prima": "Leche de vaca",
+        "cantidad": 90,
+        "unidades_disponibles": "kg",
+        "valor_gramo": 0.0042
+        }
+    ]
+}

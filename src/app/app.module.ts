@@ -1,14 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { CreateRequestComponent } from './components/create-request/create-request.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
 
 // primeng imports
 
@@ -21,6 +23,9 @@ import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ListboxModule } from 'primeng/listbox';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({
@@ -29,7 +34,8 @@ import { ListboxModule } from 'primeng/listbox';
     LoginComponent,
     DashboardComponent,
     CreateProjectComponent,
-    CreateRequestComponent
+    CreateRequestComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,6 +44,7 @@ import { ListboxModule } from 'primeng/listbox';
     FormsModule,
     InputTextModule,
     PasswordModule,
+    HttpClientModule,
     ButtonModule,
     ReactiveFormsModule,
     CardModule,
@@ -45,7 +52,10 @@ import { ListboxModule } from 'primeng/listbox';
     MessagesModule,
     InputNumberModule,
     InputTextareaModule,
-    ListboxModule
+    ListboxModule,
+    TableModule,
+    ToolbarModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent],

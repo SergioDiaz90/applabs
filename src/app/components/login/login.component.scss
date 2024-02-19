@@ -29,6 +29,16 @@
     margin-bottom: 15px;
 }
 
+p-messages {
+    ::ng-deep {
+        .p-messages {
+            .p-message {
+                margin: 0;
+            }
+        }
+    }
+}
+
 label {
     display: block;
     font-weight: 500;

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { SessionStorageService } from './session-storage.service';
 import { LocalStorageService } from './local-storage.service';
 import { environment } from 'src/environments/environment';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
   constructor(
+    private http: HttpClient,
     private sessionStorage: SessionStorageService,
     private localStorage: LocalStorageService
   ) { }
@@ -65,6 +66,10 @@ export class OrderService {
     
     this.localStorage.update(nextRole, project);
     return { status: true, message: 'Solicitud creada con éxito'};
+  }
+
+  async handlerInventory () {
+    return await this.http.get('../assets/resources/inventory.json').toPromise();
   }
 
   getProjectsByRoleUser () {
