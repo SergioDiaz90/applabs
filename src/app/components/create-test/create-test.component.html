@@ -1,45 +1,47 @@
 <div class="header">
-    <img src="../../../assets/img/logo.png" alt="">
+    <img src="../../../assets/img/logo-blanco.webp" alt="applabs">
     <div class="card flex justify-content-center">
         <p-toast></p-toast>
-        <button pButton type="button" (click)="navigateTo()" icon="pi pi-angle-double-left"></button>
+        <button pButton class="p-button-secondary p-button-outlined" type="button" (click)="navigateTo()" icon="pi pi-angle-double-left"></button>
     </div>
 </div>
 
 <div class="container">
-    <h1>Creación de Ensayo</h1>
     <div class="info-container">
+        <h1 class="info-container--title">Creación de Ensayo</h1>
 
-        <p-card class="p-card-content">
-            <h2>Datos de creación</h2>
-            <form
-                class="form"
-                [formGroup]="formulario" (ngSubmit)="submitForm()">
-                <div class="form--inputs">
-                    <div class="form--inputs-fields">
-                        <label for="proyecto">Proyecto:</label>
-                        <input pInputText type="text" id="proyecto" formControlName="project">
+        <div class="info-container--items">
+            <p-card class="p-card-content">
+                <h2>Datos de creación</h2>
+                <form
+                    class="form"
+                    [formGroup]="formulario" (ngSubmit)="submitForm()">
+                    <div class="form--inputs">
+                        <div class="form--inputs-fields">
+                            <label for="proyecto">Proyecto:</label>
+                            <input pInputText type="text" id="proyecto" formControlName="project">
+                        </div>
+                        <div class="form--inputs-fields">
+                            <label for="test">Ensayo #</label>
+                            <input pInputText type="text" id="id" formControlName="test">
+                        </div>
                     </div>
-                    <div class="form--inputs-fields">
-                        <label for="test">Ensayo #</label>
-                        <input pInputText type="text" id="id" formControlName="test">
-                    </div>
+                    <button pButton type="submit" [disabled]="!formulario.valid">Enviar</button>
+                </form>
+            </p-card>
+    
+            <p-card class="p-card-content">
+                <h2>Lista de proyectos</h2>
+                <div class="list-wrapper">
+                    <p-listbox
+                        [options]="projects"
+                        [(ngModel)]="projectSelected"
+                        (click)="selectProject()"
+                        optionLabel="name">
+                    </p-listbox>
                 </div>
-                <button pButton type="submit" [disabled]="!formulario.valid">Enviar</button>
-            </form>
-        </p-card>
-
-        <p-card class="p-card-content">
-            <h2>Lista de proyectos</h2>
-            <div class="list-wrapper">
-                <p-listbox
-                    [options]="projects"
-                    [(ngModel)]="projectSelected"
-                    (click)="selectProject()"
-                    optionLabel="name">
-                </p-listbox>
-            </div>
-        </p-card>
+            </p-card>
+        </div>
 
     </div>
 
@@ -47,49 +49,11 @@
     <div class="tabs-container">
         <p-tabView class="">
             <p-tabPanel header="Formula">
-                <p-toolbar styleClass="mb-4 gap-2">
-                    <ng-template pTemplate="left">
-                        <!-- <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"></button>
-                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" placeholder="Consultar" />
-                        </span>
-                    </ng-template>
-            
-                    <ng-template pTemplate="right">
-                        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mx-4 inline-block"></p-fileUpload>
-                        <button pButton pRipple label="Guardar" class="mx-4 p-button-primary"></button>
-                        <button pButton pRipple label="Editar" class="mx-4 p-button-primary"></button>
-                        <button pButton pRipple label="Limpiar" class="mx-4 p-button-danger"></button>
-                    </ng-template>
-                </p-toolbar>
-            
-                <p-table
-                    [value]="AllInventory"
-                    selectionMode="multiple"
-                    [(selection)]="selectedProducts"
-                    [metaKeySelection]="true"
-                    dataKey="codigo"
-                    responsiveLayout="scroll">
-            
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th *ngFor="let title of columnName">{{ title.header }}</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-AllInventory let-rowIndex="rowIndex">
-                        <tr [pSelectableRow]="AllInventory" [pSelectableRowIndex]="rowIndex">
-                            <td>{{AllInventory.codigo}}</td>
-                            <td>{{AllInventory.producto}}</td>
-                            <td>{{AllInventory.materia_prima}}</td>
-                            <td>{{AllInventory.cantidad}}</td>
-                            <td>{{AllInventory.unidades_disponibles}}</td>
-                            <td>{{AllInventory.valor_gramo}}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
+                <app-inventory [showHeader]="false"></app-inventory>
             </p-tabPanel>
+            <p-tabPanel header=" + ">
+            </p-tabPanel>
+
         </p-tabView>
     </div>
 </div>
