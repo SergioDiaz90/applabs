@@ -29,10 +29,12 @@ export class CreateProjectComponent implements OnInit {
   submitForm() {
     if (this.formulario.valid) {
       this.messages = [{ severity: 'success', summary: 'success', detail: 'Proyecto creado con éxito' }];
+      setTimeout(() => this.messages = [], 1500);
       return this.orderService.handlerCreateProjects(this.formulario.value);
     }
 
-    this.messages = [{ severity: 'error', summary: 'error', detail: {message: 'Hubo un error creando el proyecto.'} }];
+    this.messages = [{ severity: 'error', summary: 'error', detail: 'Hubo un error creando el proyecto.' }];
+    setTimeout(() => this.messages = [], 1500);
     return { 'status': false, method: 'submitForm' };
   }
 

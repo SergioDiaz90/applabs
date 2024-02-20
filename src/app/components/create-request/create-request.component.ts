@@ -74,12 +74,14 @@ export class CreateRequestComponent implements OnInit {
 
   submitForm() {
     if (this.formulario.valid) {
-      this.messages = [{ severity: 'success', summary: 'success', detail: 'Proyecto creado con éxito' }];
+      this.messages = [{ severity: 'success', summary: 'success', detail: 'Solicitud creado con éxito' }];
+      setTimeout(() => this.messages = [], 1500);
       return this.orderService.handlerCreateRequest(this.formulario.value);
       console.log(this.formulario.value, this.projectSelected);
     }
 
-    this.messages = [{ severity: 'error', summary: 'error', detail: 'Hubo un error creando el proyecto.' }];
+    setTimeout(() => this.messages = [], 1500);
+    this.messages = [{ severity: 'error', summary: 'error', detail: 'Hubo un error creando la solicitud.' }];
     return;
   }
 

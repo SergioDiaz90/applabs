@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
 
     if (!response.status) {
       this.messages = [{ severity: 'error', summary: 'error', detail: response.message }];
+
+      setTimeout(() => this.messages = [], 1500);
     }
 
     console.log('loginComponent', response);

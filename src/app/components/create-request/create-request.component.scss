@@ -71,6 +71,10 @@
 }
 
 p-messages {
+    position: absolute;
+    right: 0;
+    z-index: 3;
+
     ::ng-deep {
         .p-messages {
             .p-message {
