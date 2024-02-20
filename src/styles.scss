@@ -20,8 +20,13 @@
 body {
     clear: both;
     margin: 0;
+    height: 100vh;
     font-family: 'Alpina-sans';
-    background-color: $cian-principal-color;
+    background-image: url('./assets/img/bg-img.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: brightness(0.5);
 }
 
 // h1, h2, h3, h4, h5 {
