@@ -15,6 +15,7 @@ export class CreateRequestComponent implements OnInit {
   disable: boolean = true;
   projects: City[] = [];
   projectSelected: City | undefined;
+  messages: any = [];
 
   constructor(
     private forms: UntypedFormBuilder,
@@ -71,11 +72,15 @@ export class CreateRequestComponent implements OnInit {
     console.log('setFormValue', currentProject, this.formulario.controls);
   }
 
-  submitForm(): void {
+  submitForm() {
     if (this.formulario.valid) {
-      this.orderService.handlerCreateRequest(this.formulario.value);
+      this.messages = [{ severity: 'success', summary: 'success', detail: 'Proyecto creado con éxito' }];
+      return this.orderService.handlerCreateRequest(this.formulario.value);
       console.log(this.formulario.value, this.projectSelected);
     }
+
+    this.messages = [{ severity: 'error', summary: 'error', detail: 'Hubo un error creando el proyecto.' }];
+    return;
   }
 
   navigateTo() {

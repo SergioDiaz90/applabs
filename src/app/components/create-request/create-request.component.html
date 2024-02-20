@@ -1,67 +1,74 @@
+<div class="card">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+</div>
 <div class="header">
-    <img src="../../../assets/img/logo.png" alt="">
+    <img src="../../../assets/img/logo-blanco.webp" alt="applabs">
     <div class="card flex justify-content-center">
         <p-toast></p-toast>
-        <button pButton type="button" (click)="navigateTo()" icon="pi pi-angle-double-left"></button>
+        <button pButton class="p-button-secondary p-button-outlined" type="button" (click)="navigateTo()" icon="pi pi-angle-double-left"></button>
     </div>
 </div>
 
-<h1>Creación de solicitud</h1>
 <div class="container">
-    <div class="list-wrapper">
-        <p-listbox [options]="projects" [(ngModel)]="projectSelected" (click)="selectProject()" optionLabel="name"></p-listbox>
-    </div>
-    <div class="form-wrapper">
-        <form
-            class="form"
-            [formGroup]="formulario" (ngSubmit)="submitForm()">
-            <div class="form--inputs">
-                <div class="form--inputs-fields">
-                    <label for="id">Numero de proyecto:</label>
-                    <input pInputText type="text" id="id" formControlName="id">
-                </div>
-                <div class="form--inputs-fields">
-                    <label for="proyecto">Proyecto:</label>
-                    <input pInputText type="text" id="proyecto" formControlName="project">
-                </div>
-                <div class="form--inputs-fields">
-                    <label for="tipoProducto">Tipo de Producto:</label>
-                    <input  pInputText type="text" id="tipoProducto" formControlName="project_type">
-                </div>
-            
-                <div class="form--inputs-fields">
-                    <label for="nombreArchivo">Nombre del Archivo:</label>
-                    <input pInputText type="text" id="nombreArchivo" formControlName="name_file">
-                </div>
-            
-                <div class="form--inputs-fields">
-                    <label for="cantidadPrototipos">Cantidad de Prototipos:</label>
-                    <p-inputNumber id="cantidadPrototipos" formControlName="cuantity_prototypes"></p-inputNumber>
-                    <!-- <input pInputText type="number" id="cantidadPrototipos" formControlName="cuantity_prototypes"> -->
-                </div>
-            
-                <div class="form--inputs-fields">
-                    <label for="cantidadProduccion">Cantidad de Prototipos a Producir por Prototipo (KG):</label>
-                    <!-- <input type="number" id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"> -->
-                    <p-inputNumber id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"></p-inputNumber>
-                </div>
-        
-                <div class="form--inputs-fields">
-                    <label for="tipoEmpaque">Tipo de Empaque para el Producto:</label>
-                    <input pInputText type="text" id="tipoEmpaque" formControlName="type_of_packaging">
-                </div>
-    
-                <div class="form--inputs-fields">
-                    <label for="finalidadMuestras">Finalidad de las Muestras:</label>
-                    <textarea pInputTextarea id="finalidadMuestras" formControlName="finally"></textarea>
-                </div>
-    
-                <div class="form--inputs-fields">
-                    <label for="observaciones">Observaciones Adicionales:</label>
-                    <textarea pInputTextarea id="observaciones" formControlName="comments"></textarea>
-                </div>
-                <button pButton type="submit" [disabled]="!formulario.valid">Enviar</button>
+    <div class="info-wrapper">
+        <h1 class="info-wrapper--title">Creación de solicitud</h1>
+        <div class="info-wrapper--items">
+            <div class="list-wrapper">
+                <p-listbox [options]="projects" [(ngModel)]="projectSelected" (click)="selectProject()" optionLabel="name"></p-listbox>
             </div>
-        </form>
+            <div class="form-wrapper">
+                <form
+                    class="form"
+                    [formGroup]="formulario" (ngSubmit)="submitForm()">
+                    <div class="form--inputs">
+                        <div class="form--inputs-fields">
+                            <label for="id">Numero de proyecto:</label>
+                            <input pInputText type="text" id="id" formControlName="id">
+                        </div>
+                        <div class="form--inputs-fields">
+                            <label for="proyecto">Proyecto:</label>
+                            <input pInputText type="text" id="proyecto" formControlName="project">
+                        </div>
+                        <div class="form--inputs-fields">
+                            <label for="tipoProducto">Tipo de Producto:</label>
+                            <input  pInputText type="text" id="tipoProducto" formControlName="project_type">
+                        </div>
+                    
+                        <div class="form--inputs-fields">
+                            <label for="nombreArchivo">Nombre del Archivo:</label>
+                            <input pInputText type="text" id="nombreArchivo" formControlName="name_file">
+                        </div>
+                    
+                        <div class="form--inputs-fields">
+                            <label for="cantidadPrototipos">Cantidad de Prototipos:</label>
+                            <p-inputNumber id="cantidadPrototipos" formControlName="cuantity_prototypes"></p-inputNumber>
+                            <!-- <input pInputText type="number" id="cantidadPrototipos" formControlName="cuantity_prototypes"> -->
+                        </div>
+                    
+                        <div class="form--inputs-fields">
+                            <label for="cantidadProduccion">Cantidad de Prototipos a Producir por Prototipo (KG):</label>
+                            <!-- <input type="number" id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"> -->
+                            <p-inputNumber id="cantidadProduccion" formControlName="cuantity_prototypes_by_kg"></p-inputNumber>
+                        </div>
+                
+                        <div class="form--inputs-fields">
+                            <label for="tipoEmpaque">Tipo de Empaque para el Producto:</label>
+                            <input pInputText type="text" id="tipoEmpaque" formControlName="type_of_packaging">
+                        </div>
+            
+                        <div class="form--inputs-fields">
+                            <label for="finalidadMuestras">Finalidad de las Muestras:</label>
+                            <textarea pInputTextarea id="finalidadMuestras" formControlName="finally"></textarea>
+                        </div>
+            
+                        <div class="form--inputs-fields">
+                            <label for="observaciones">Observaciones Adicionales:</label>
+                            <textarea pInputTextarea id="observaciones" formControlName="comments"></textarea>
+                        </div>
+                        <button pButton type="submit" [disabled]="!formulario.valid">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

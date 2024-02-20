@@ -1,23 +1,59 @@
 @import '../../../assets/styles/variables.scss';
 
 .header {
-    background-color: #1450c914;
+    background-color: $blue-principal-color;
     color: $white-principal-color;
     padding: 10px;
     display: flex;
     justify-content: space-between;
 
     img {
-        width: 100px;
+        width: 75px;
+        height: 45px;
         margin-right: 30px;
+    }
+
+    button {
+        ::ng-deep {
+            .p-button-icon {
+                color: $white-principal-color;
+            }
+        }
     }
 }
 
-.card--wrapper {
-    width: 90%;
-    margin: 0 auto;
+.container {
+    width: 100%;
+    height: 93%;
+    background-color: $cian-principal-color;
+    // background-image: url(../../../assets/img/26807.jpg);
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-origin: center;
 
-    button {
-        margin-left: 10px;
+    .card--wrapper {
+        width: 90%;
+        margin: 0 auto;
+        padding: 50px 0;
+    
+        &--title {
+            margin: 0 0 40px 0;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    }
+}
+
+
+p-messages {
+    ::ng-deep {
+        .p-messages {
+            .p-message {
+                margin: 0;
+            }
+        }
     }
 }
