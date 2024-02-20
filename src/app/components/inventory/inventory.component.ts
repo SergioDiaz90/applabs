@@ -27,6 +27,7 @@ export class InventoryComponent implements OnInit {
   ]
   selectedProducts: any = [];
   Delete: string = '';
+  inventoryUnfiltered: any;
 
 
   constructor(
@@ -35,9 +36,33 @@ export class InventoryComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.AllInventory = await this.orderService.handlerInventory();
-    this.AllInventory = this.AllInventory.inventario;
+    this.AllInventory = await this.getInventory();
     console.log('inventory', this.AllInventory);
+  }
+
+  async onSearch(event: any) {
+    let filter;
+
+    if (event.target.value !== '') {
+      filter = this.AllInventory.filter( (item: any) => {
+        let condition = item.codigo.search(event.target.value) ||
+          item.producto.search(event.target.value) || item.materia_prima.search(event.target.value);
+
+        return condition !== -1 ? item : undefined;
+      })
+
+      this.AllInventory = filter ? filter : await this.getInventory();
+    } else {
+      this.AllInventory = await this.getInventory();
+      console.log('onSearch', this.AllInventory);
+    }
+
+    console.log('onSearch', event.target.value);
+  }
+
+  async getInventory () {
+    let inventory: any = await this.orderService.handlerInventory();
+    return inventory ? inventory?.inventario : undefined;
   }
 
   navigateTo() {

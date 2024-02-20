@@ -33,31 +33,31 @@
             "valor_gramo": 0.002
         },
         {
-            "codigo": "LP001",
-            "producto": "Leche en polvo",
+            "codigo": "LP003",
+            "producto": "Leche entera",
             "materia_prima": "Leche de vaca",
             "cantidad": 100,
             "unidades_disponibles": "kg",
             "valor_gramo": 0.0025
         },
         {
-        "codigo": "YH002",
-        "producto": "Yogur natural",
-        "materia_prima": "Leche de cabra",
+        "codigo": "YH005",
+        "producto": "Yogurt griego",
+        "materia_prima": "Leche de almendras",
         "cantidad": 50,
         "unidades_disponibles": "litros",
         "valor_gramo": 0.003
         },
         {
-        "codigo": "QB003",
-        "producto": "Queso blanco",
+        "codigo": "QB005",
+        "producto": "Queso Azul",
         "materia_prima": "Leche de oveja",
         "cantidad": 75,
         "unidades_disponibles": "kg",
         "valor_gramo": 0.004
         },
         {
-        "codigo": "CC004",
+        "codigo": "CC024",
         "producto": "Crema de leche",
         "materia_prima": "Leche de vaca",
         "cantidad": 120,
@@ -74,7 +74,7 @@
         },
         {
         "codigo": "YH006",
-        "producto": "Yogur de frutas",
+        "producto": "Yogurt de frutas",
         "materia_prima": "Mezcla de leches",
         "cantidad": 60,
         "unidades_disponibles": "litros",
