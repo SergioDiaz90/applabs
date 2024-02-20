@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { CreateRequestComponent } from './components/create-request/create-request.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { CreateTestComponent } from './components/create-test/create-test.component';
 
 // primeng imports
 
@@ -26,6 +27,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
+import { TabViewModule } from 'primeng/tabview';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     DashboardComponent,
     CreateProjectComponent,
     CreateRequestComponent,
-    InventoryComponent
+    InventoryComponent,
+    CreateTestComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -55,7 +58,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     ListboxModule,
     TableModule,
     ToolbarModule,
-    FileUploadModule
+    FileUploadModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent],

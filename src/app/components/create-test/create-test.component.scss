@@ -1,0 +1,76 @@
+@import '../../../assets/styles/variables.scss';
+
+.header {
+    background-color: #1450c914;
+    color: $white-principal-color;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        width: 100px;
+        margin-right: 30px;
+    }
+}
+
+.card--wrapper {
+    width: 90%;
+    margin: 0 auto;
+
+    button {
+        margin-left: 10px;
+    }
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+
+    .info-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 30px 0;
+
+        .p-card-content {
+            width: 48%;
+            height: 45vh;
+
+            ::ng-deep {
+                .p-component {
+                    height: 100%;
+                }
+            }
+        }
+
+        .list-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+    
+        .form {        
+            &--inputs{        
+                &-fields {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 0 0 10px 0;
+    
+                    p-inputnumber {
+                        ::ng-deep {
+                            span {
+                                width: 100%;
+                            }
+                        }
+                    }
+
+                }
+            }
+        
+        }
+
+    }
+
+    .tabs {
+        width: 100%;
+    }
+}

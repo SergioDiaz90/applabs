@@ -50,6 +50,11 @@ export class DashboardComponent implements OnInit {
         path: "/createRequest"
       },
       {
+        title: "Crear Ensayo",
+        rol: "laboratorist",
+        path: "/createTest"
+      },
+      {
         title: "Validar Inventario",
         rol: "analist-profesional",
         path: "/inventory"
