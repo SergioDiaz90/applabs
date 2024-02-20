@@ -26,6 +26,8 @@ import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     DashboardComponent,
     CreateProjectComponent,
     CreateRequestComponent,
-    InventoryComponent
+    InventoryComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -55,7 +58,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     ListboxModule,
     TableModule,
     ToolbarModule,
-    FileUploadModule
+    FileUploadModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
