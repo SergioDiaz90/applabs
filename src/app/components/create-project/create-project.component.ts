@@ -10,6 +10,7 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class CreateProjectComponent implements OnInit {
   formulario: any;
+  messages: any = [];
 
   constructor(
     private forms: UntypedFormBuilder,
@@ -27,9 +28,11 @@ export class CreateProjectComponent implements OnInit {
 
   submitForm() {
     if (this.formulario.valid) {
+      this.messages = [{ severity: 'success', summary: 'success', detail: 'Proyecto creado con éxito' }];
       return this.orderService.handlerCreateProjects(this.formulario.value);
     }
 
+    this.messages = [{ severity: 'error', summary: 'error', detail: {message: 'Hubo un error creando el proyecto.'} }];
     return { 'status': false, method: 'submitForm' };
   }
 
