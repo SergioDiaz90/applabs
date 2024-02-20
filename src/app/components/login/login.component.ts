@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
 
   async login() {
     let response = await this.authService.login(this.username, this.password, this.token);
+
     if (!response.status) {
       this.messages = [{ severity: 'error', summary: 'error', detail: response.message }];
     }
+
     console.log('loginComponent', response);
     if (response.status) {
       this.router.navigate(['/dashboard']);

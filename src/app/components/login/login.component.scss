@@ -1,3 +1,5 @@
+@import '../../../assets/styles/variables.scss';
+
 .login-container {
     display: flex;
     align-items: center;
@@ -11,8 +13,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    border: 1px #0b4fca;
-    box-shadow: 1px 2px 9px 0px #0b4fca;
+    border: 1px $blue-principal-color;
+    box-shadow: 1px 2px 9px 0px $blue-principal-color;
 
     img {
         width: 200px;
