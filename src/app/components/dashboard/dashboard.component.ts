@@ -68,7 +68,12 @@ export class DashboardComponent implements OnInit {
         title: "Consultar Informe",
         rol: "laboratorist",
         path: "/consultReport"
-      }
+      },
+      {
+        title: "Programar",
+        rol: "laboratorist",
+        path: "/calendar"
+      },
     ];
 
     this.items = [
