@@ -7,6 +7,25 @@
 </div>
 <div class="container">
     <div class="form-wrapper">
-        <full-calendar [options]="calendarOptions"></full-calendar>
+        <div class="buttons">
+            <h1>Cargue de información del calendario</h1>
+            <p-dropdown [options]="areas" (onChange)="updateOptions($event)" optionLabel="name" placeholder="Seleccione Área"></p-dropdown>
+            <p-dropdown [options]="opciones" (onChange)="updateOptionsTwo($event)" optionLabel="name" placeholder="Seleccione una opción"></p-dropdown>
+        </div>
+        <h3 class="text-center" *ngIf="!showCalendar">Aún no ha seleccionado información</h3>
+        <div class="chargeData" *ngIf="showCalendar">
+            <h3>Ingrese la fecha, la hora y el motivo de la reserva</h3>
+            <div class="group">
+                <p-calendar [(ngModel)]="date" name="date" id="date" [showTime]="true" [showSeconds]="true" placeholder="Selecciona una fecha"></p-calendar>
+            </div>
+            <div class="group">
+                <textarea rows="5" cols="30" id="description" pInputTextarea [(ngModel)]="description" placeholder="Descripción de la reserva"></textarea>
+            </div>
+            <div class="group">
+                <p-dropdown [options]="proyectos" optionLabel="name" placeholder="Seleccione un proyecto"></p-dropdown>
+            </div>
+            <button pButton class="p-button-info" type="submit" (click)="agregar()">Agendar</button>
+        </div>
+        <full-calendar [options]="calendarOptions" *ngIf="showCalendar"></full-calendar>
     </div>
 </div>

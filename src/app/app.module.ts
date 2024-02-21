@@ -28,7 +28,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './components/calendar/calendar.component';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     TableModule,
     ToolbarModule,
     FileUploadModule,
-    FullCalendarModule
+    FullCalendarModule,
+    DropdownModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

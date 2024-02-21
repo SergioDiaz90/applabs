@@ -88,3 +88,32 @@ p-messages {
         }
     }
 }
+
+.buttons {
+    margin-bottom: 25px;
+    box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.2784313725);
+    padding: 10px;
+
+    p-dropdown {
+        margin-right: 20px;
+    }
+}
+
+.chargeData {
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 1px 2px 9px 0px #00000047;
+    padding: 10px;
+
+    .input {
+        margin-left: 10px;
+    }
+
+    p-calendar:hover{
+        cursor: pointer;
+    }
+
+    .group {
+        margin-bottom: 10px;
+    }
+}
