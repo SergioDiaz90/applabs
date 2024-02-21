@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
@@ -13,6 +13,7 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent implements OnInit {
+  @Input() showHeader: boolean = true;
   principalMenu: any[] = [];
   items: MenuItem[] = [];
   user: any;

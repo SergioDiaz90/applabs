@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { CreateRequestComponent } from './components/create-request/create-request.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { CreateTestComponent } from './components/create-test/create-test.component';
 
 // primeng imports
 
@@ -26,6 +27,8 @@ import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
+import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DropdownModule } from 'primeng/dropdown';
@@ -39,6 +42,7 @@ import { CalendarModule } from 'primeng/calendar';
     CreateProjectComponent,
     CreateRequestComponent,
     InventoryComponent,
+    CreateTestComponent
     CalendarComponent
   ],
   imports: [
@@ -60,6 +64,8 @@ import { CalendarModule } from 'primeng/calendar';
     TableModule,
     ToolbarModule,
     FileUploadModule,
+    TabViewModule,
+    DialogModule
     FullCalendarModule,
     DropdownModule,
     CalendarModule
