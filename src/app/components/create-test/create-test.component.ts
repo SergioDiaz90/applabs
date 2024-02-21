@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { City } from 'src/app/interfaces/user-and-order';
@@ -16,7 +16,7 @@ export class CreateTestComponent implements OnInit {
   projects: any = [];
   projectSelected: any;
   numberTest: number = 0;
-  AllInventory: any;
+  AllInventory: any = [];
   columnName = [
     { field: 'codigo', header: 'Código' },
     { field: 'producto', header: 'Producto' },
@@ -26,21 +26,62 @@ export class CreateTestComponent implements OnInit {
     { field: 'valor_gramo', header: 'Valor en gramos' },
   ]
   selectedProducts: any = [];
+  product = {};
+  submitted: boolean = false;
+  productDialog: any = false;
+  addProducts: any;
+  tabs: any;
+  tables: any;
+  indexTab: any = 0;
+  messages: any = [];
 
   constructor(
     private router: Router,
     private forms: UntypedFormBuilder,
-    private orderService: OrderService
+    private orderService: OrderService,
   ) { }
 
   async ngOnInit() {
     this.formulario = this.forms.group({
       project: ['', Validators.required],
       test: ['', Validators.required],
+      procedimiento: ['', Validators.required],
     });
 
-    this.AllInventory = await this.orderService.handlerInventory();
-    this.AllInventory = this.AllInventory.inventario;
+    this.addProducts = this.forms.group({
+      codigo: ['', Validators.required],
+      producto: ['', Validators.required],
+      materia_prima: ['', Validators.required],
+      cantidad: ['', Validators.required],
+      unidades_disponibles: ['', Validators.required],
+      valor_gramo: ['', Validators.required],
+    })
+
+    // this.AllInventory = await this.getInventory();
+
+    const card = {
+      id: 0,
+      title: 'Formula 1',
+      active: true,
+      table: [
+        {
+          first: 'Mark',
+          last: 'Otto'
+        },
+        {
+          first: 'Jacob',
+          last: 'Thornton'
+        },
+        {
+          first: 'Larry',
+          last: 'the Bird'
+        }
+      ]
+    }
+    this.tabs = [card]
+    this.tables = this.tabs[0].table;
+
+    console.log('inventory', this.AllInventory);
     this.getProjects();
   }
 
@@ -81,8 +122,94 @@ export class CreateTestComponent implements OnInit {
     if (this.formulario.valid) {
       // this.orderService.handlerCreateRequest(this.formulario.value);
       // console.log(this.formulario.value, this.projectSelected);
+      this.messages = [{ severity: 'success', summary: 'success', detail: 'Ensayo creado con éxito' }];
+      setTimeout(() => this.messages = [], 1500);
+      return;
     }
+
+    this.messages = [{ severity: 'error', summary: 'error', detail: 'Error al crear la solicitud' }];
+    setTimeout(() => this.messages = [], 1500);
+    return;
   }
+
+  openNew() {
+    this.product = {};
+    this.submitted = false;
+    this.productDialog = true;
+  }
+
+  hideDialog() {
+    this.productDialog = false;
+    this.submitted = false;
+    this.addProducts.reset();
+  }
+
+  saveProduct() {
+    this.productDialog = false;
+    this.submitted = false;
+    this.AllInventory.push({ ...this.addProducts.value });
+    this.addProducts.reset();
+    this.messages = [{ severity: 'success', summary: 'success', detail: 'Producto agregado con éxito' }];
+    setTimeout(() => this.messages = [], 1500);
+  }
+
+  cleanProducts () {
+    this.AllInventory = [];
+    this.messages = [{ severity: 'success', summary: 'success', detail: 'Productos borrados con éxito' }];
+    setTimeout(() => this.messages = [], 1500);
+  }
+
+  addTabs (e: any) {
+    const valueTab = e.originalEvent.target.firstChild.nodeValue;
+    let card;
+
+    if (valueTab !== " + ") {
+      return;
+    }
+
+    card = {
+      id: this.tabs.length,
+      title: 'Formula' + (this.tabs.length + 1),
+      active: false,
+      table: []
+    }
+
+    console.log('addTabs', {card, tabs: this.tabs, value: e.originalEvent.target.firstChild.nodeValue });
+    this.tabs.push(card);
+    
+    this.openTab();
+  }
+
+  openTab() {
+    this.indexTab = this.tabs.length - 1;
+    console.log('openTab', this.indexTab);
+  }
+
+  async onSearch(event: any) {
+    let filter;
+
+    if (event.target.value !== '') {
+      filter = this.AllInventory.filter( (item: any) => {
+        let condition = item.codigo.search(event.target.value) ||
+          item.producto.search(event.target.value) || item.materia_prima.search(event.target.value);
+
+        return condition !== -1 ? item : undefined;
+      })
+
+      this.AllInventory = filter ? filter : await this.getInventory();
+    } else {
+      this.AllInventory = await this.getInventory();
+      console.log('onSearch', this.AllInventory);
+    }
+
+    console.log('onSearch', event.target.value);
+  }
+
+  async getInventory () {
+    let inventory: any = await this.orderService.handlerInventory();
+    return inventory ? inventory?.inventario : undefined;
+  }
+
 
   navigateTo() {
     this.router.navigate(['/dashboard']);

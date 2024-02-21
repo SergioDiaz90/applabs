@@ -28,6 +28,7 @@ import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { TabViewModule } from 'primeng/tabview';
     TableModule,
     ToolbarModule,
     FileUploadModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -33,6 +33,7 @@
 
 .container {
     width: 100%;
+    height: 100vh;
     background-color: $cian-principal-color;
     
     .info-container {
@@ -96,5 +97,44 @@
     .tabs-container {
         width: 90%;
         margin: 0 auto;
+        .card--wrapper {
+            overflow: scroll;
+        }
+    }
+
+    .form-wrapper {
+        .form {
+            &--inputs {
+                width: 90%;
+                margin: 0 auto;
+
+                &-fields {
+                    display: flex;
+                    flex-direction: column;
+
+                    p-inputnumber {
+                        ::ng-deep {
+                            span {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+p-messages {
+    position: absolute;
+    right: 0;
+    z-index: 3;
+
+    ::ng-deep {
+        .p-messages {
+            .p-message {
+                margin: 0;
+            }
+        }
     }
 }
